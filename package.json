@@ -1,5 +1,5 @@
 {
-  "name": "Code Blog",
+  "name": "blog",
   "private": false,
   "description": "A blog to discuss projects and coding concepts",
   "version": "0.1.0",
@@ -22,7 +22,8 @@
     "prettier": "^1.19.1"
   },
   "keywords": [
-    "gatsby", "blog"
+    "gatsby",
+    "blog"
   ],
   "license": "MIT",
   "scripts": {
