@@ -1,4 +1,10 @@
 import React from "react"
+import {
+  FaFacebookSquare,
+  FaLinkedin,
+  FaTwitter,
+  FaGithub,
+} from "react-icons/fa"
 
 const Footer = () => (
   <div className="site-footer">
@@ -8,12 +14,42 @@ const Footer = () => (
       <ul className="social-links-list">
         <li>
           <a
-            href="http://www.facebook.com"
+            href="https://twitter.com/JayLowellC"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="twitter"
+          >
+            <FaTwitter />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/jameslcarterdeveloper/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="linkedin"
+          >
+            <FaLinkedin />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://github.com/jlowellc"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="github"
+          >
+            <FaGithub />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.facebook.com/jimcarterdeveloper"
             target="_blank"
             rel="noopener noreferrer"
             className="facebook"
           >
-            <i class="fab fa-facebook-f"></i>
+            <FaFacebookSquare />
           </a>
         </li>
       </ul>
