@@ -6,10 +6,22 @@ import { Badge, Card, CardBody, CardSubtitle } from "reactstrap"
 import Img from "gatsby-image"
 import { slugify } from "../util/utility"
 import authors from "../util/authors"
+import { FaFacebookF, FaLinkedin, FaTwitter } from "react-icons/fa"
+import { DiscussionEmbed } from "disqus-react"
 
-const SinglePost = ({ data }) => {
+const SinglePost = ({ data, pageContext }) => {
   const post = data.markdownRemark.frontmatter
   const author = authors.find(x => x.name === post.author)
+
+  const baseUrl = "https://jcarterblog.com/"
+
+  const disqusShortname = "jcarterblog"
+  const disqusConfig = {
+    identifier: data.markdownRemark.id,
+    title: post.title,
+    url: baseUrl + pageContext.slug,
+  }
+
   return (
     <Layout
       pageTitle={post.title}
@@ -40,6 +52,58 @@ const SinglePost = ({ data }) => {
           </ul>
         </CardBody>
       </Card>
+      <h3 className="text-center">Share this post</h3>
+      <div className="text-center social-share-links">
+        <ul>
+          <li>
+            <a
+              href={
+                "https://www.facebook.com/sharer/sharer.php?u=" +
+                baseUrl +
+                pageContext.slug
+              }
+              className="facebook"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebookF />
+            </a>
+          </li>
+          <li>
+            <a
+              href={
+                "https://www.twitter.com/share?url=" +
+                baseUrl +
+                pageContext.slug +
+                "&text=" +
+                post.title +
+                "&via" +
+                "jaylowellc"
+              }
+              className="twitter"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter />
+            </a>
+          </li>
+          <li>
+            <a
+              href={
+                "https://www.linkedin.com/shareArticle?url=" +
+                baseUrl +
+                pageContext.slug
+              }
+              className="linkedin"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin />
+            </a>
+          </li>
+        </ul>
+      </div>
+      <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
     </Layout>
   )
 }
